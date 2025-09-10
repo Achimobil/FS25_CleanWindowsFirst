@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="101">
+    <author>Achimobil</author>
+    <version>1.2.0.0</version>
+
+    <title>
+        <de>Map Objekt Hider</de>
+        <en>Map Objects Hider</en>
+        <cz>Skrývání Objektů Na Mapě</cz>
+        <it>Nascondi Oggetti Della Mappa</it>
+    </title>
+
+    <description>
+        <de><![CDATA[Wenn der Mapper andere Pläne hatte als du, hör auf in der Map direkt Anpassungen zu machen und blende im Spiel aus, was dich stört.
+
+Dieser Mod ist auf Basis des LS22 Mods gemacht und in Teilen neu aufgebaut worden für den LS25.
+
+Map Objekte wie Gebäude, Leitplanken, Zäune und vieles mehr können ausgeblendet werden.
+Nur ausgeblendete Objekte können nachher über den Dialog zurückgeholt werden.
+Dies wird im Savegame gespeichert damit es dauerhaft ausgeblendet bleibt, solange die Map sich nicht verändert.
+
+Platzierbare Gebäude werden verkauft oder gelöscht und nicht ausgeblendet. Hierzu muss man die Berechtigung haben diese zu verkaufen oder zu löschen.
+Bäume werden generell gelöscht und nicht ausgeblendet.
+Verkaufte oder gelöschte Objekte können nicht wieder zurückgesetzt werden.
+
+Aber Vorsicht!
+- Nicht alle Objekttypen und auch nicht alle Objekte können entfernt werden. (z.B. Parkende Autos können nicht entfernt werden, da diese nicht erkannt werden können).
+- Wenn sich die Hierarchie der Objekte auf der Karte ändert (z.B. durch Änderungen im GIANTS Editor), können einige Objekte wieder auftauchen und müssen erneut entfernt werden.
+- Wenn eine Mod-Map nicht korrekt aufgebaut ist, kann das Entfernen einiger Bäume das oben genannte Problem verursachen.
+- Wenn Gebäude in der Map nicht korrekt definiert sind, so kann dies zu lustigen Effekten führen.
+- Es ist möglich Mapränder auszublenden. Hierdurch kann man dann ins Bodenlose fallen. Sollte man nicht machen.
+
+Rechte im MP
+- Auf dem eigenen Farmland benötigt man das Recht Placables zu verkaufen oder man muss als Admin angemeldet sein
+- Auf dem allgemeinen Land oder auf fremden Farmland kann nur als Admin etwas entfernen
+
+Upload auf anderen Seiten außer dem ModHub ist verboten und somit illegal, Verlinkung nur mit Original-Downloadlink. KEIN Ersatzlink!
+Das Verändern oder erneutes Hochladen, ob ganz oder in Teilen, ist nicht gestattet!
+
+Fehler und Anregungen gerne auf <a href="https://github.com/Achimobil/FS25_MapObjectsHider">GitHub</a>.
+
+Changelog
+1.2.0.0
+- Neue übersetzungen in BR und weitere verbesserungen der bestehenden Übersetzungen
+- Probleme mit wieder einblenden und mit wieder Sichtbarsein nach Dialogbenutzung behoben
+- Im MP werden jetzt Rechte benötigt wenn man nicht Admin ist zum Ausblenden
+- Ein paar gemeldete lua Fehler abgefangen
+
+1.1.0.0
+- UK Übersetzungen eingefügt
+- Einige null reference lua fehler, die gemeldet wurden, gefixed
+]]></de>
+        <en><![CDATA[If the mapper had different plans than you, stop making adjustments directly in the map and hide what bothers you in the game.
+
+This mod is based on the LS22 mod and has been partially rebuilt for the LS25.
+
+Map objects such as buildings, crash barriers, fences and much more can be hidden.
+Only hidden objects can be retrieved afterwards via the dialogue.
+This is saved in the savegame so that it remains permanently hidden as long as the map does not change.
+
+Placeable buildings are sold or deleted and not hidden. You must have the authorisation to sell or delete them.
+Trees are generally deleted and not hidden.
+Sold or deleted objects cannot be reset.
+
+But be careful!
+- Not all object types and not all objects can be removed. (e.g. parked cars cannot be removed as they cannot be recognised).
+- If the hierarchy of objects on the map changes (e.g. due to changes in the GIANTS Editor), some objects may reappear and have to be removed again.
+- If a mod map is not set up correctly, removing some trees can cause the above problem.
+- If buildings are not defined correctly in the map, this can lead to funny effects.
+- It is possible to hide map edges. This can cause you to fall into a bottomless pit. You should not do this.
+
+Rights in MP
+- On your own farmland, you need the right to sell placables or you must be logged in as an admin
+- On public land or on other people's farmland, only admins can remove items
+
+Uploading to sites other than ModHub is prohibited and therefore illegal, linking only with original download link. NO substitute link!
+Modifying and re-uploading in whole or in part is not allowed!
+
+Bugs and suggestions welcome on <a href="https://github.com/Achimobil/FS25_MapObjectsHider">GitHub</a>.
+
+Changelog
+1.2.0.0
+- New translations in BR and further improvements to existing translations
+- Problems with reappearing and visibility after using dialog fixed
+- In MP, rights are now required to hide stuff if you are not an admin
+- A few reported lua errors caught
+
+1.1.0.0
+- UK Translations added
+- Fix some reported null reference lua errors
+]]></en>
+    </description>
+
+    <multiplayer supported="true"/>
+    <iconFilename>icon_MapObjectsHider.png</iconFilename>
+
+    <extraSourceFiles>
+        <sourceFile filename="mapObjectsHider.lua"/>
+        <sourceFile filename="events/deleteSplitShapeEvent.lua" />
+        <sourceFile filename="events/deletePlacableEvent.lua" />
+        <sourceFile filename="events/hideDecollideNode.lua" />
+        <sourceFile filename="events/requestObjectsListEvent.lua" />
+        <sourceFile filename="events/sendObjectsListEvent.lua" />
+        <sourceFile filename="events/objectShowRequestEvent.lua" />
+        <sourceFile filename="events/showCollideNodeEvent.lua" />
+        <sourceFile filename="events/objectHideRequest.lua" />
+        <sourceFile filename="events/loadMapObjectsHiderDataResult.lua" />
+        <sourceFile filename="gui/mapObjectsHiderDialog.lua" />
+        <sourceFile filename="gui/elements/cameraElement.lua" />
+        <sourceFile filename="scripts/ArrayUtility.lua" />
+        <sourceFile filename="scripts/playerExtension.lua" />
+        <sourceFile filename="scripts/DebugUtility.lua" />
+        <sourceFile filename="scripts/EntityUtility.lua" />
+        <sourceFile filename="scripts/Utility.lua" />
+        <sourceFile filename="scripts/StringUtility.lua" />
+    </extraSourceFiles>
+
+    <actions>
+        <action name="MAP_OBJECT_HIDER_HIDE" category="ONFOOT" axisType="HALF"/>
+        <action name="MAP_OBJECT_HIDER_DECOLLIDE" category="ONFOOT" axisType="HALF"/>
+        <action name="MAP_OBJECT_HIDER_GUI" category="ONFOOT" axisType="HALF" />
+    </actions>
+
+    <inputBinding>
+        <actionBinding action="MAP_OBJECT_HIDER_HIDE" >
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_h" />
+        </actionBinding>
+        <!-- <actionBinding action="MAP_OBJECT_HIDER_DECOLLIDE" > -->
+            <!-- <binding device="KB_MOUSE_DEFAULT" input="KEY_j" /> -->
+        <!-- </actionBinding> -->
+        <actionBinding action="MAP_OBJECT_HIDER_GUI">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lshift KEY_h" />
+        </actionBinding>
+    </inputBinding>
+
+    <l10n filenamePrefix="translations/l10n" />
+</modDesc>
